@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html ng-app="NoteBook">
+<head>
+    <title>MyNotepad</title>
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/AppJS/app.js"></script>
+    <link href="/Styles/General.css" rel="stylesheet" type="text/css" />
+</head>
+    <body ng-controller="BookController as book">
+        <h1>Notes</h1>
+        <div ng-repeat="note in book.notes">
+            <note-list>
+            </note-list>
+        </div>
+    </body>
+</html>
