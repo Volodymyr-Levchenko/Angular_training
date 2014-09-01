@@ -7,10 +7,22 @@
     <link href="/Styles/General.css" rel="stylesheet" type="text/css" />
 </head>
     <body ng-controller="BookController as book">
-        <h1>Notes</h1>
-        <div ng-repeat="note in book.notes">
-            <note-list>
-            </note-list>
-        </div>
+        <table class="main_menu">
+            <th class="menu_strip">
+                <h1>MENU</h1>
+            </th>
+            <th>
+                <h1>Notes</h1>
+            </th>
+            <tr>
+                <td class="menu_strip"></td>
+                <td>
+                    <div class="note" ng-repeat="note in book.notes">
+                        <note-list>
+                        </note-list>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>
