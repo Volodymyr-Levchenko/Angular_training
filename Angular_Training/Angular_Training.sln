@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular_Training", "Angular_Training\Angular_Training.csproj", "{74230AE8-9663-4E62-A324-16FC213A889B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI_Training", "WebAPI_Training\WebAPI_Training.csproj", "{74AD1978-F874-432D-A769-E74373605D68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{74230AE8-9663-4E62-A324-16FC213A889B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74230AE8-9663-4E62-A324-16FC213A889B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74230AE8-9663-4E62-A324-16FC213A889B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74AD1978-F874-432D-A769-E74373605D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74AD1978-F874-432D-A769-E74373605D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74AD1978-F874-432D-A769-E74373605D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74AD1978-F874-432D-A769-E74373605D68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

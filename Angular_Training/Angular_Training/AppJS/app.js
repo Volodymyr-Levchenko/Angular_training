@@ -2,10 +2,12 @@
 
 app.controller('BookController', function() {
     this.notes = myNotes;
-
 });
-app.directive('noteList', function() {
-        return {
+app.directive('displayNote', function() {
+    return {
+            scope: {
+              ngModel:'='  
+            },
             restrict: 'E',
             templateUrl: "/Templates/_noteTemplate.html"
         };
