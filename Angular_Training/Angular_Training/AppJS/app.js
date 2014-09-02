@@ -23,8 +23,8 @@ app.directive('displayNote', function() {
 app.controller('StripController', function() {
     this.cats = categories;
     this.noteHeadersVisible = false;
-    this.toggleHeaderVisibility= function() {
-        this.noteHeadersVisible = !this.noteHeadersVisible;
+    this.toggleHeaderVisibility= function(showParam) {
+        this.noteHeadersVisible = showParam;
     };
 });
 var categories = {
