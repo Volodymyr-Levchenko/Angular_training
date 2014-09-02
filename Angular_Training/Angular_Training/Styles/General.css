@@ -25,6 +25,10 @@ table {
     background-color: #000000;
 }
 
+.menu_strip, .note_screen {
+    vertical-align: top;
+}
+
 .template_note td {
     float: left;
 }

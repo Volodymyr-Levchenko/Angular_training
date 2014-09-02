@@ -8,19 +8,29 @@
 </head>
     <body ng-controller="BookController as book">
         <table class="main_menu">
-            <th class="menu_strip">
-                <h1>MENU</h1>
-            </th>
-            <th>
-                <h1>Notes</h1>
-            </th>
+            <tr style="height: 10%">
+                <th class="menu_strip">
+                    <h1>MENU</h1>
+                </th>
+                <th>
+                    <h1>Notes</h1>
+                </th>
+            </tr>
             <tr>
-                <td class="menu_strip"></td>
-                <td>
-                    <div class="note" ng-repeat="note in book.notes">
-                        <note-list>
-                        </note-list>
+                <td class="menu_strip" >
+                    <div ng-controller="StripController as strip">
+                        <ul>
+                            <li ng-repeat ="item in strip.cats">
+                                <a href="">{{item.name}}</a>
+                            </li>
+                        </ul>
                     </div>
+                </td>
+                <td class="note_screen">
+                    <div class="note" ng-repeat="note in book.notes">
+                            <note-list>
+                            </note-list>
+                        </div>
                 </td>
             </tr>
         </table>
