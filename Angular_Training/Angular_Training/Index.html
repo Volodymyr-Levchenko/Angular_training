@@ -21,14 +21,21 @@
                     <div ng-controller="StripController as strip">
                         <ul>
                             <li ng-repeat ="item in strip.cats">
-                                <a href="">{{item.name}}</a>
+                                <div>
+                                    <a href="" ng-click="strip.toggleHeaderVisibility()">{{item.name}}</a>
+                                    <ul ng-show="strip.noteHeadersVisible">
+                                        <li ng-repeat="note in book.notes" ng-if="note.category==item">
+                                            <a ng-click="book.currentNote=note" href="">{{note.header}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </td>
                 <td class="note_screen">
-                    <div class="note" ng-repeat="note in book.notes">
-                        <display-note ng-model="note">
+                    <div class="note">
+                        <display-note ng-model="book.currentNote">
                         </display-note>
                         </div>
                 </td>

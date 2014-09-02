@@ -2,6 +2,7 @@
 
 app.controller('BookController', function() {
     this.notes = myNotes;
+    this.currentNote = this.notes[0];
 });
 app.directive('displayNote', function() {
     return {
@@ -9,11 +10,22 @@ app.directive('displayNote', function() {
               ngModel:'='  
             },
             restrict: 'E',
-            templateUrl: "/Templates/_noteTemplate.html"
+            templateUrl: "/Templates/_noteTemplate.html",
+            controller:function() {
+                this.setModel = function(scope, note) {
+                    scope.ngModel = note;
+                    scope.$apply();
+                };
+            },
+            controllerAs:"display"
         };
 });
 app.controller('StripController', function() {
     this.cats = categories;
+    this.noteHeadersVisible = false;
+    this.toggleHeaderVisibility= function() {
+        this.noteHeadersVisible = !this.noteHeadersVisible;
+    };
 });
 var categories = {
     WORK: { name: "Work", id: "0" },
