@@ -3,6 +3,7 @@
 <head>
     <title>MyNotepad</title>
     <script src="/Scripts/angular.min.js"></script>
+    <script src="/Scripts/angular-route.min.js"></script>
     <script src="/AppJS/app.js"></script>
     <link href="/Styles/General.css" rel="stylesheet" type="text/css" />
 </head>
@@ -18,26 +19,28 @@
             </tr>
             <tr>
                 <td class="menu_strip" >
-                    <div ng-controller="StripController as strip">
-                        <ul>
-                            <li ng-repeat ="item in strip.cats">
-                                <div>
-                                    <a href="" ng-mouseenter="strip.toggleHeaderVisibility(true)" ng-mouseleave="strip.toggleHeaderVisibility(false)">{{item.name}}</a>
-                                    <ul ng-show="strip.noteHeadersVisible">
-                                        <li ng-repeat="note in book.notes" ng-if="note.category==item">
-                                            <a ng-click="book.currentNote=note" href="">{{note.header}}</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    <!--<a href='#book/notes/0'>testnote1</a>
+                    <a href='#book/notes/1'>testnote2</a>
+                    <a href='#book/notes/2'>testnote3</a>-->
+
+                    <div ng-controller="StripController">
+                            <ul>
+                                <li ng-repeat ="item in cats">
+                                    <div>
+                                        <a href="" ng-mouseenter="toggleHeaderVisibility(true)" ng-mouseleave="strip.toggleHeaderVisibility(false)">{{item.name}}</a>
+                                        <ul ng-show="noteHeadersVisible">
+                                            <li ng-repeat="note in book.notes" ng-if="note.category==item">
+                                                <a href="#/book/notes/{{note.id}}">{{note.header}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                 </td>
                 <td class="note_screen">
-                    <div class="note">
-                        <display-note ng-model="book.currentNote">
-                        </display-note>
-                        </div>
+                    <div ng-view>
+                    </div>
                 </td>
             </tr>
         </table>
