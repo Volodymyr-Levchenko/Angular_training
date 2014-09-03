@@ -32,3 +32,7 @@ table {
 .template_note td {
     float: left;
 }
+ul {
+    margin: 0;
+    padding: 0;
+}

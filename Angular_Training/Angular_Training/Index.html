@@ -21,8 +21,8 @@
                     <div ng-controller="StripController as strip">
                         <ul>
                             <li ng-repeat ="item in strip.cats">
-                                <div>
-                                    <a href="" ng-mouseenter="strip.toggleHeaderVisibility(true)" ng-mouseleave="strip.toggleHeaderVisibility(false)">{{item.name}}</a>
+                                <div ng-mouseleave="strip.toggleHeaderVisibility(false)">
+                                    <a href="" ng-mouseenter="strip.toggleHeaderVisibility(true)">{{item.name}}</a>
                                     <ul ng-show="strip.noteHeadersVisible">
                                         <li ng-repeat="note in book.notes" ng-if="note.category==item">
                                             <a ng-click="book.currentNote=note" href="">{{note.header}}</a>
