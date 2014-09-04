@@ -1,8 +1,8 @@
-﻿<div>
-    <div>{{category.name}}</div>
-    <ul>
-        <li ng-repeat="note in list.currentNotes">
-            <a href="#/book/notes/{{note.id}}">{{item.header}}</a>
+﻿<div ng-mouseleave="display = false">
+    <div ng-mouseenter="display = true">{{category.name}}</div>
+    <ul ng-show="display">
+        <li ng-repeat="note in fetchRespectiveNotes(category)">
+            <a href="#/notes/{{note.id}}">{{note.header}}</a>
         </li>
     </ul>
 </div>

@@ -12,14 +12,15 @@
             <div>
                 <ul>
                     <li ng-repeat="item in cats">
-                        <div>
+                        <list-category cat="item" display></list-category>
+                        <!--<div>
                                 <a href="" >{{item.name}}</a>
                                 <ul>
                                     <li ng-repeat="note in fetchRespectiveNotes(item)">
                                         <a href="#/book/notes/{{note.id}}">{{note.header}}</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>-->
                     </li>
                 </ul>
             </div>

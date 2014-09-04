@@ -4,12 +4,16 @@
 app.config([
     '$routeProvider', function($routeProvider) {
         $routeProvider.
-            when('/book/notes/:noteid', {
+            when('/notes/:noteid', {
                 templateUrl: '/Templates/_noteTemplate.html',
                 controller: 'NoteController'
             }).
+            when('/map/', {
+                templateUrl: '/Templates/_mapTemplate.html',
+                controller:'MapController'
+            }).
             otherwise({
-                redirectTo:'/book/notes/0'
+                redirectTo:'/notes/0'
             });
 
     }
@@ -26,29 +30,27 @@ app.controller('NoteController', [
                 if (myNotes[i].category == category)
                     res.push(myNotes[i]);
             return res;
-        }
+        };
     }
 ]);
-//app.directive('listCategory', function() {
-//    return {
-//        restrict: 'E',
-//        scope: {
-//            category: '=cat'
-//        },
-//        templateUrl: '/Templates/_categoryListTemplate.html',
-//        //controller:function() {
-//        //    this.currentNotes = fetchNotes(category);
-//        //},
-//        //controllerAs:'list'
-//    }
-//});
-app.controller('StripController', function ($scope) {
-    $scope.cats = categories;
-    $scope.noteHeadersVisible = false;
-    $scope.toggleHeaderVisibility = function (showParam) {
-        $scope.noteHeadersVisible = showParam;
+app.controller('MapController', [
+    '$scope', '$routeParams', function($scope, $routeParams) {
+
+    }
+]);
+app.directive('listCategory', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            category: '=cat',
+            display:'@'
+        },
+        templateUrl: '/Templates/_categoryListTemplate.html',
+        controller: 'NoteController',
     };
 });
+
+//--Temporary stub till establishing integration with back-end--
 var categories = {
     WORK: { name: "Work", id: "0" },
     HOME: { name: "Home", id: "1" }
@@ -56,20 +58,27 @@ var categories = {
 var myNotes = [
 {
     id:0,
-    header: 'TestNote1',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget mi sit amet nisi vestibulum consequat. Nullam tempor viverra nunc id ultrices. Quisque scelerisque turpis id orci laoreet, non molestie nulla vehicula. Nullam purus odio, mollis venenatis tortor sit amet, lobortis rhoncus turpis. Ut faucibus bibendum neque, a feugiat urna. Pellentesque nisl risus, tincidunt eleifend iaculis non, commodo eget arcu. Nunc ac pretium magna, vel molestie tellus.',
+    header: 'TestNote0',
+    text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.',
     category: categories.WORK
 },
 {
     id:1,
-    header: 'TestNote2',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget mi sit amet nisi vestibulum consequat. Nullam tempor viverra nunc id ultrices. Quisque scelerisque turpis id orci laoreet, non molestie nulla vehicula. Nullam purus odio, mollis venenatis tortor sit amet, lobortis rhoncus turpis. Ut faucibus bibendum neque, a feugiat urna. Pellentesque nisl risus, tincidunt eleifend iaculis non, commodo eget arcu. Nunc ac pretium magna, vel molestie tellus.',
+    header: 'TestNote1',
+    text: 'Aenean nec lorem. In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy. Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla.',
     category:categories.WORK
 },
 {
     id:2,
-    header: 'TestNote3',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget mi sit amet nisi vestibulum consequat. Nullam tempor viverra nunc id ultrices. Quisque scelerisque turpis id orci laoreet, non molestie nulla vehicula. Nullam purus odio, mollis venenatis tortor sit amet, lobortis rhoncus turpis. Ut faucibus bibendum neque, a feugiat urna. Pellentesque nisl risus, tincidunt eleifend iaculis non, commodo eget arcu. Nunc ac pretium magna, vel molestie tellus.',
+    header: 'TestNote2',
+    text: 'Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod,' +
+        ' purus ipsum pretium metus, in lacinia nulla nisl eget sapien.' +
+        ' Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat.' +
+        ' Sed at lorem in nunc porta tristique. Proin nec augue. Quisque aliquam tempor magna.'+
+        'Aenean nec lorem. In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, ' +
+        'scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis' +
+        ' eleifend. Ut nonummy. Fusce aliquet pede non pede. Suspendisse dapibus' +
+        ' lorem pellentesque magna. Integer nulla.',
     category:categories.HOME
 }
 ];

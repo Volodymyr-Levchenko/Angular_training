@@ -392,6 +392,7 @@
     <Content Include="Styles\General.css" />
     <Content Include="Styles\resource__smoke_by_elsoria-d5fb3b8.jpg" />
     <Content Include="Templates\_categoryListTemplate.html" />
+    <Content Include="Templates\_mapTemplate.html" />
     <Content Include="Templates\_noteTemplate.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -414,6 +415,7 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Styles\Futura_MdCn_BT_Medium.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
