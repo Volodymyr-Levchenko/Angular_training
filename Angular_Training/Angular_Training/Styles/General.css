@@ -40,3 +40,5 @@ ul {
     margin: 0;
     padding: 0;
 }
+#map-canvas { height: 100% }
+

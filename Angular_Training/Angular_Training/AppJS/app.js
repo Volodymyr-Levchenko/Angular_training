@@ -40,7 +40,7 @@ app.controller('MapController', [
 ]);
 app.directive('listCategory', function() {
     return {
-        restrict: 'E',
+        restrict: 'A',
         scope: {
             category: '=cat',
             display:'@'

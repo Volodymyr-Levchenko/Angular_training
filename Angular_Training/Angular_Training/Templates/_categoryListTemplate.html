@@ -1,6 +1,6 @@
 ﻿<div ng-mouseleave="display = false">
     <div ng-mouseenter="display = true">{{category.name}}</div>
-    <ul ng-show="display">
+    <ul ng-show="display||current.category == category">
         <li ng-repeat="note in fetchRespectiveNotes(category)">
             <a href="#/notes/{{note.id}}">{{note.header}}</a>
         </li>
