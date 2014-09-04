@@ -16,30 +16,33 @@ app.config([
 ]);
 app.controller('NoteController', [
     '$scope', '$routeParams', function ($scope, $routeParams) {
-        $scope.note = fetchNote($routeParams.noteid);
+        $scope.notes = myNotes;
+        $scope.cats = categories;
+        $scope.current = fetchNote($routeParams.noteid);
+        $scope.fetchRespectiveNotes = function(category) {
+            var i;
+            var res = [];
+            for (i = 0; i < myNotes.length; i++)
+                if (myNotes[i].category == category)
+                    res.push(myNotes[i]);
+            return res;
+        }
     }
 ]);
-app.controller('BookController', function() {
-    this.notes = myNotes;
-});
-
-//app.directive('displayNote', function() {
+//app.directive('listCategory', function() {
 //    return {
-//            scope: {
-//              ngModel:'='  
-//            },
-//            restrict: 'E',
-//            templateUrl: "/Templates/_noteTemplate.html",
-//            controller:function() {
-//                this.setModel = function(scope, note) {
-//                    scope.ngModel = note;
-//                    scope.$apply();
-//                };
-//            },
-//            controllerAs:"display"
-//        };
+//        restrict: 'E',
+//        scope: {
+//            category: '=cat'
+//        },
+//        templateUrl: '/Templates/_categoryListTemplate.html',
+//        //controller:function() {
+//        //    this.currentNotes = fetchNotes(category);
+//        //},
+//        //controllerAs:'list'
+//    }
 //});
-app.controller('StripController', function($scope) {
+app.controller('StripController', function ($scope) {
     $scope.cats = categories;
     $scope.noteHeadersVisible = false;
     $scope.toggleHeaderVisibility = function (showParam) {
@@ -78,3 +81,4 @@ var fetchNote = function (id) {
             res = myNotes[i];
     return res;
 }
+

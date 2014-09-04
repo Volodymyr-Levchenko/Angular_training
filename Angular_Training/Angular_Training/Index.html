@@ -7,42 +7,6 @@
     <script src="/AppJS/app.js"></script>
     <link href="/Styles/General.css" rel="stylesheet" type="text/css" />
 </head>
-    <body ng-controller="BookController as book">
-        <table class="main_menu">
-            <tr style="height: 10%">
-                <th class="menu_strip">
-                    <h1>MENU</h1>
-                </th>
-                <th>
-                    <h1>Notes</h1>
-                </th>
-            </tr>
-            <tr>
-                <td class="menu_strip" >
-                    <!--<a href='#book/notes/0'>testnote1</a>
-                    <a href='#book/notes/1'>testnote2</a>
-                    <a href='#book/notes/2'>testnote3</a>-->
-
-                    <div ng-controller="StripController">
-                            <ul>
-                                <li ng-repeat ="item in cats">
-                                    <div>
-                                        <a href="" ng-mouseenter="toggleHeaderVisibility(true)" ng-mouseleave="strip.toggleHeaderVisibility(false)">{{item.name}}</a>
-                                        <ul ng-show="noteHeadersVisible">
-                                            <li ng-repeat="note in book.notes" ng-if="note.category==item">
-                                                <a href="#/book/notes/{{note.id}}">{{note.header}}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                </td>
-                <td class="note_screen">
-                    <div ng-view>
-                    </div>
-                </td>
-            </tr>
-        </table>
+    <body ng-view>
     </body>
 </html>

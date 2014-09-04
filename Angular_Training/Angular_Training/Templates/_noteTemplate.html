@@ -1,26 +1,56 @@
-﻿<div>
-    <h1>{{note.header}}</h1>
-    <div>
-        <table class="template_note">
-            <tr>
-                <td>
-                    {{note.text}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="">Edit</a>
-                </td>
-                <td>
-                    <a href="">Cancel</a>
-                </td>
-                <td>
-                    <a href="">Complete</a>
-                </td>
-                <td>
-                    <a href="">Mark on map</a>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
+﻿<table class="main_menu">
+    <tr style="height: 10%">
+        <th class="menu_strip">
+            <h1>MENU</h1>
+        </th>
+        <th>
+            <h1>Notes</h1>
+        </th>
+    </tr>
+    <tr>
+        <td class="menu_strip">
+            <div>
+                <ul>
+                    <li ng-repeat="item in cats">
+                        <div>
+                                <a href="" >{{item.name}}</a>
+                                <ul>
+                                    <li ng-repeat="note in fetchRespectiveNotes(item)">
+                                        <a href="#/book/notes/{{note.id}}">{{note.header}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </td>
+        <td class="note_screen">
+            <div>
+                <h1>{{current.header}}</h1>
+                <div>
+                    <table class="template_note">
+                        <tr>
+                            <td>
+                                {{current.text}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="">Edit</a>
+                            </td>
+                            <td>
+                                <a href="">Cancel</a>
+                            </td>
+                            <td>
+                                <a href="">Complete</a>
+                            </td>
+                            <td>
+                                <a href="">Mark on map</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
