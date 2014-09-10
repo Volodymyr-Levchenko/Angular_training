@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Collections;
+using System.Collections.Generic;
+
 namespace WebAPI_Training.Models
 {
     using System;
@@ -18,6 +21,7 @@ namespace WebAPI_Training.Models
         public NoteModelContainer()
             : base("name=NoteModelContainer")
         {
+            Database.SetInitializer(null);
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -27,5 +31,21 @@ namespace WebAPI_Training.Models
     
         public virtual DbSet<Note> NoteSet { get; set; }
         public virtual DbSet<Category> CategorySet { get; set; }
+    }
+
+    public class NoteModelContainerInitializer : DropCreateDatabaseIfModelChanges<NoteModelContainer>
+    {
+        protected override void Seed(NoteModelContainer context)
+        {
+            IList<Category> defaultCategories = new List<Category>();
+            defaultCategories.Add(new Category(){Name = "Work"});
+            defaultCategories.Add(new Category(){Name = "Home"});
+            foreach (var category in defaultCategories)
+            {
+                context.CategorySet.Add(category);
+            }
+
+            base.Seed(context);
+        }
     }
 }

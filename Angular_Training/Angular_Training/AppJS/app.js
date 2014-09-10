@@ -19,8 +19,11 @@ app.config([
     }
 ]);
 app.controller('NoteController', [
-    '$scope', '$routeParams', function ($scope, $routeParams) {
-        $scope.notes = myNotes;
+    '$scope','$http', '$routeParams', function ($scope, $http, $routeParams) {
+        $http.get('/api/notes').success(function(data) {
+            $scope.notes = data;
+        });
+        //$scope.notes = myNotes;
         $scope.cats = categories;
         $scope.current = fetchNote($routeParams.noteid);
         $scope.fetchRespectiveNotes = function(category) {
