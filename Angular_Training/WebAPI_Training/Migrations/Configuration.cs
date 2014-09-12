@@ -12,10 +12,10 @@ namespace WebAPI_Training.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Models.NotesContext context)
+        protected override void Seed(NotesContext context)
         {
-            var work = new Category() {Name = "Work"};
-            var home = new Category() {Name = "Home"};
+            var work = new Category { Name = "Work" };
+            var home = new Category { Name = "Home" };
 
             context.Categories.AddOrUpdate(c => c.Name, work, home);
             context.SaveChanges();
