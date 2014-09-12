@@ -9,6 +9,11 @@ namespace WebAPI_Training.DAL
         private GenericRepository<Note> noteRepository;
         private GenericRepository<Category> categoryRepository;
 
+        public UnitOfWork()
+        {
+            _container = new NotesContext();
+        }
+
         public GenericRepository<Note> NoteRepository
         {
             get { return noteRepository ?? new GenericRepository<Note>(_container); }

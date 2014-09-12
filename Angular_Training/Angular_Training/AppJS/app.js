@@ -20,18 +20,20 @@ app.config([
 ]);
 app.controller('NoteController', [
     '$scope','$http', '$routeParams', function ($scope, $http, $routeParams) {
-        $http.get('/api/notes').success(function(data) {
+        $http.get('api/notes/').success(function(data) {
             $scope.notes = data;
         });
         //$scope.notes = myNotes;
-        $scope.cats = categories;
-        $scope.current = fetchNote($routeParams.noteid);
+        $scope.cats = $http.get('api/categories/').success(function(data) {
+            $scope.cats = data;
+        });
+        $scope.current = fetchNote($routeParams.noteid,$scope.notes);
         $scope.fetchRespectiveNotes = function(category) {
             var i;
             var res = [];
-            for (i = 0; i < myNotes.length; i++)
-                if (myNotes[i].category == category)
-                    res.push(myNotes[i]);
+            for (i = 0; i < cats.length; i++)
+                if (cats[i].category == category)
+                    res.cats(myNotes[i]);
             return res;
         };
     }
@@ -85,12 +87,12 @@ var myNotes = [
     category:categories.HOME
 }
 ];
-var fetchNote = function (id) {
+var fetchNote = function (id,notes) {
     var i;
     var res=null;
-    for(i=0;i<myNotes.length;i++)
-        if (myNotes[i].id == id)
-            res = myNotes[i];
+    for(i=0;i<notes.length;i++)
+        if (notes[i].id == id)
+            res = notes[i];
     return res;
 }
 
