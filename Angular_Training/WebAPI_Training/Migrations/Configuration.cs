@@ -1,31 +1,26 @@
+using WebAPI_Training.Models;
+
 namespace WebAPI_Training.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
+    
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebAPI_Training.Models.NotesContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.NotesContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(WebAPI_Training.Models.NotesContext context)
+        protected override void Seed(Models.NotesContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var work = new Category() {Name = "Work"};
+            var home = new Category() {Name = "Home"};
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Categories.AddOrUpdate(c => c.Name, work, home);
+            context.SaveChanges();
+            context.Notes.Add(new Note { Header = "Note1", Text = "Lorem ipsum", Category = work });
+            context.Notes.Add(new Note { Header = "Note2", Text = "Ipsum Lorem", Category = home });
         }
     }
 }
