@@ -10,10 +10,10 @@ namespace WebAPI_Training.DAL
 {
     public class GenericRepository<TEntity> where TEntity:class
     {
-        internal NoteModelContainer _container;
+        internal NotesContext _container;
         internal DbSet<TEntity> _set;
 
-        public GenericRepository(NoteModelContainer containerParam)
+        public GenericRepository(NotesContext containerParam)
         {
             _container = containerParam;
             _set = _container.Set<TEntity>();

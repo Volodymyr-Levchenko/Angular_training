@@ -8,7 +8,7 @@ namespace WebAPI_Training.DAL
 {
     public class UnitOfWork:IDisposable
     {
-        private NoteModelContainer _container;
+        private NotesContext _container;
         private GenericRepository<Note> noteRepository;
         private GenericRepository<Category> categoryRepository;
 
