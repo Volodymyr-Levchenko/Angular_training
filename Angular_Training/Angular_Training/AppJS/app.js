@@ -20,14 +20,18 @@ app.config([
 ]);
 app.controller('NoteController', [
     '$scope','$http', '$routeParams', function ($scope, $http, $routeParams) {
-        $http.get('api/notes/').success(function(data) {
+        $http.get('api/notebook/notes/').success(function(data) {
             $scope.notes = data;
         });
         //$scope.notes = myNotes;
-        $scope.cats = $http.get('api/categories/').success(function(data) {
+        $http.get('api/notebook/categories/').success(function (data) {
             $scope.cats = data;
         });
-        $scope.current = fetchNote($routeParams.noteid,$scope.notes);
+        //$scope.current = fetchNote($routeParams.noteid, $scope.notes);
+        
+        $http.get('api/notebook/notes/' + $routeParams.noteid).success(function (data) {
+            $scope.current = data;
+        });
         $scope.fetchRespectiveNotes = function(category) {
             var i;
             var res = [];

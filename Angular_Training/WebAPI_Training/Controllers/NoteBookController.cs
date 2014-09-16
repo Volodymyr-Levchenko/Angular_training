@@ -9,18 +9,19 @@ using WebAPI_Training.Models;
 
 namespace WebAPI_Training.Controllers
 {
-    public class NoteController : ApiController
+    [RoutePrefix("api/NoteBook")]
+    public class NoteBookController : ApiController
     {
         private UnitOfWork _unit = new UnitOfWork();
 
-        [Route("api/notes/")]
+        [Route("Notes")]
         [HttpGet]
         public IEnumerable<Note> GetAllNotes()
         {
             return _unit.NoteRepository.Get();
         }
 
-        [Route("api/categories/")]
+        [Route("Categories")]
         [HttpGet]
         public IEnumerable<Category> GetAllCategories()
         {
@@ -34,14 +35,14 @@ namespace WebAPI_Training.Controllers
         //    return _unit.NoteRepository.Get(n => n.Category.Name == CategoryName);
         //}
 
-        [Route("api/notes/{id:int}")]
+        [Route("Notes/{id:int}")]
         [HttpGet]
         public Note GetNoteById(int id)
         {
             return _unit.NoteRepository.GetById(id);
         }
 
-        [Route("api/notes/new")]
+        [Route("Notes/new")]
         [HttpPost]
         public void AddNote(Note newNote)
         {
@@ -49,7 +50,7 @@ namespace WebAPI_Training.Controllers
             _unit.Save();
         }
 
-        [Route("api/notes/{id:int}/edit")]
+        [Route("Notes/{id:int}/edit")]
         [HttpPut]
         public void UpdateNote(int id)
         {
@@ -58,7 +59,7 @@ namespace WebAPI_Training.Controllers
             _unit.Save();
         }
 
-        [Route("api/notes/{id:int}/delete")]
+        [Route("Notes/{id:int}/delete")]
         [HttpDelete]
         public void DeleteNote(int id)
         {
