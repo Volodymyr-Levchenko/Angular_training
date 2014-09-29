@@ -129,7 +129,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58539</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58539/</IISUrl>
+          <IISUrl>http://localhost:58501/api</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

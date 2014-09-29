@@ -9,7 +9,7 @@ using WebAPI_Training.Models;
 
 namespace WebAPI_Training.Controllers
 {
-    [RoutePrefix("api/NoteBook")]
+    [RoutePrefix("NoteBook")]
     public class NoteBookController : ApiController
     {
         private UnitOfWork _unit = new UnitOfWork();
