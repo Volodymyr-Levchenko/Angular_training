@@ -1,3 +1,4 @@
+using System.Linq;
 using WebAPI_Training.Models;
 
 namespace WebAPI_Training.Migrations
@@ -14,13 +15,29 @@ namespace WebAPI_Training.Migrations
 
         protected override void Seed(NotesContext context)
         {
-            var work = new Category { Name = "Work" };
-            var home = new Category { Name = "Home" };
-
-            context.Categories.AddOrUpdate(c => c.Name, work, home);
+            //in case of Seed method go hurka-durka
+            //if (System.Diagnostics.Debugger.IsAttached == false)
+            //    System.Diagnostics.Debugger.Launch();
+            
+            context.Categories.AddOrUpdate(c => c.Name, new Category { Name = "Work" });
+            context.Categories.AddOrUpdate(c => c.Name, new Category { Name = "Home" });
             context.SaveChanges();
-            context.Notes.Add(new Note { Header = "Note1", Text = "Lorem ipsum", Category = work });
-            context.Notes.Add(new Note { Header = "Note2", Text = "Ipsum Lorem", Category = home });
+
+            
+            context.Notes.AddOrUpdate(n => n.Header, new Note
+            {
+                Header = "Note1",
+                Text = "Lorem ipsum",
+                CategoryId = context.Categories.FirstOrDefault(c => c.Name == "Work").CategoryId
+            });
+
+            context.Notes.AddOrUpdate(n => n.Header, new Note
+            {
+                Header = "Note2",
+                Text = "Ipsum Lorem",
+                CategoryId = context.Categories.FirstOrDefault(c => c.Name == "Home").CategoryId
+            });
+            context.SaveChanges();
         }
     }
 }

@@ -32,14 +32,7 @@ app.controller('NoteController', [
         $http.get('api/notebook/notes/' + $routeParams.noteid).success(function (data) {
             $scope.current = data;
         });
-        $scope.fetchRespectiveNotes = function(category) {
-            var i;
-            var res = [];
-            for (i = 0; i < $scope.cats.length; i++)
-                if ($scope.cats[i].category == category)
-                    res = $scope.cats(myNotes[i]);
-            return res;
-        };
+        
     }
 ]);
 app.controller('MapController', [
@@ -58,12 +51,20 @@ app.directive('listCategory', function() {
         controller: 'NoteController',
     };
 });
-var fetchNote = function (id,notes) {
+var fetchNote = function(id, notes) {
     var i;
-    var res=null;
-    for(i=0;i<notes.length;i++)
+    var res = null;
+    for (i = 0; i < notes.length; i++)
         if (notes[i].id == id)
             res = notes[i];
     return res;
-}
+};
+var fetchRespectiveNotes = function (category, notes, cats) {
+    var i;
+    var res = [];
+    for (i = 0; i < cats.length; i++)
+        if (cats[i].category == category)
+            res.push(notes[i]);
+    return res;
+};
 

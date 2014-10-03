@@ -28,12 +28,12 @@ namespace WebAPI_Training.Controllers
             return _unit.CategoryRepository.Get();
         }
 
-        //[Route("api/notes/{CategoryName:string}/")]
-        //[HttpGet]
-        //public IEnumerable<Note> GetNotesByCategory(string CategoryName)
-        //{
-        //    return _unit.NoteRepository.Get(n => n.Category.Name == CategoryName);
-        //}
+        [Route("api/notes/{CategoryName}/")]
+        [HttpGet]
+        public IEnumerable<Note> GetNotesByCategory(string CategoryName)
+        {
+            return _unit.NoteRepository.Get(n => n.Category.Name == CategoryName);
+        }
 
         [Route("Notes/{id:int}")]
         [HttpGet]
