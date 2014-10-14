@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace WebAPI_Training.Models
 {
@@ -11,7 +12,7 @@ namespace WebAPI_Training.Models
         public int CategoryId { get; set; }
         public string Name { get; set; }
 
-        
+        [JsonIgnore]
         public virtual List<Note> Notes { get; set; }
     }
 }

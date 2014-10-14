@@ -19,20 +19,28 @@ app.config([
     }
 ]);
 app.controller('NoteController', [
-    '$scope','$http', '$routeParams', function ($scope, $http, $routeParams) {
+    '$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+
         $http.get('api/notebook/notes/').success(function(data) {
             $scope.notes = data;
         });
-        //$scope.notes = myNotes;
+
         $http.get('api/notebook/categories/').success(function (data) {
             $scope.cats = data;
         });
-        //$scope.current = fetchNote($routeParams.noteid, $scope.notes);
-        
+
         $http.get('api/notebook/notes/' + $routeParams.noteid).success(function (data) {
             $scope.current = data;
         });
-        
+
+        $scope.fetchNotes = function (category) {
+            var res;
+            $http.get('api/notebook' + category).success(function(data) {
+                res = data;
+            });
+            return res;
+        };
+
     }
 ]);
 app.controller('MapController', [

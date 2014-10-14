@@ -7,8 +7,6 @@ namespace WebAPI_Training.Models
         public NotesContext()
             : base("NoteBookDB")
         {
-                Database.SetInitializer(
-                    new MigrateDatabaseToLatestVersion<NotesContext, Migrations.Configuration>("NoteBookDB"));
         }
 
         public DbSet<Note> Notes { get; set; }

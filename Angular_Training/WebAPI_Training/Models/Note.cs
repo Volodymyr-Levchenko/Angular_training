@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace WebAPI_Training.Models
 {
@@ -12,6 +13,8 @@ namespace WebAPI_Training.Models
         public string Text { get; set; }
 
         public int CategoryId { get; set; }
+
+        [JsonIgnore]
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
 
