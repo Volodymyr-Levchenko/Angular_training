@@ -4,14 +4,20 @@
     <title>MyNotepad</title>
     <script src="/Scripts/angular.min.js"></script>
     <script src="/Scripts/angular-route.min.js"></script>
-    <script src="/AppJS/app.js"></script>
+    <script src="/Application/app.js"></script>
+    <script src="/Scripts/gMaps/initMap.js"></script>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCPMFSJkEpTt-OW10qJCgYEq2DDkT6134">
     </script>
-    <script src="/Scripts/gMaps/initMap.js"></script>
     <link href="/Styles/General.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 </head>
-    <body ng-view>
+    <body>
+        <div id="_mainMenu">
+            <a href="#/notes/">Menu</a>
+            <a href="#/map/">Map</a>
+        </div>
+        <div ng-view>
+        </div>
     </body>
 </html>

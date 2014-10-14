@@ -1,6 +1,6 @@
 ﻿<div ng-mouseleave="display = false">
     <div ng-mouseenter="display = true">{{category.name}}</div>
-    <ul ng-show="display||current.category == category">
+    <ul ng-show="display||current.categoryId == category.categoryId">
         <li ng-repeat="note in notes">
             <a ng-if="note.categoryId == category.categoryId" href="#/notes/{{note.noteId}}">{{note.header}}</a>
         </li>

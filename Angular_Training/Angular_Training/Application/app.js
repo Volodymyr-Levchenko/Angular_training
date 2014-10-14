@@ -5,11 +5,11 @@ app.config([
     '$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/notes/:noteid', {
-                templateUrl: '/Templates/_noteTemplate.html',
+                templateUrl: '/Application/Views/_note.html',
                 controller: 'NoteController'
             }).
             when('/map/', {
-                templateUrl: '/Templates/_mapTemplate.html',
+                templateUrl: '/Application/Views/_map.html',
                 controller:'MapController'
             }).
             otherwise({
@@ -55,7 +55,7 @@ app.directive('listCategory', function() {
             category: '=cat',
             display:'@'
         },
-        templateUrl: '/Templates/_categoryListTemplate.html',
+        templateUrl: '/Application/Views/_categoryList.html',
         controller: 'NoteController',
     };
 });

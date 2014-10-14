@@ -72,8 +72,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppJS\app.js" />
-    <Content Include="Global.asax" />
+    <Content Include="Application\app.js" />
+    <Content Include="Application\Views\_map.html" />
     <Content Include="Index.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -380,16 +380,11 @@
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Styles\General.css" />
     <Content Include="Styles\resource__smoke_by_elsoria-d5fb3b8.jpg" />
-    <Content Include="Templates\_categoryListTemplate.html" />
-    <Content Include="Templates\_mapTemplate.html" />
-    <Content Include="Templates\_noteTemplate.html" />
+    <Content Include="Application\Views\_categoryList.html" />
+    <Content Include="Application\Views\_note.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -413,10 +408,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
